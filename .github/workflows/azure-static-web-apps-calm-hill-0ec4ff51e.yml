@@ -29,11 +29,11 @@ jobs:
         run: dotnet --info
 
       - name: Restore
-        run: dotnet restore PortalWars/PortalWars.csproj
+        run: dotnet restore PortalWars/PortalWars.Web.csproj
 
       - name: Publish (Release)
         # Publish to a short/known folder so we can point the static deploy action at it.
-        run: dotnet publish PortalWars/PortalWars.csproj -c Release -o PortalWars/publish -f net10.0
+        run: dotnet publish PortalWars/PortalWars.Web.csproj -c Release -o PortalWars/publish -f net10.0
 
       - name: Build And Deploy
         id: builddeploy
@@ -59,4 +59,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_HILL_0EC4FF51E }}
           action: "close"
+
 
