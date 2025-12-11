@@ -43,7 +43,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           # app_location can be "/" when you are uploading pre-built files
-          app_location: "/" 
+          app_location: "PortalWars/PortalWars.Web"
           api_location: "" 
           # Set output_location to the published wwwroot produced by dotnet publish
           output_location: "PortalWars/publish/wwwroot"
@@ -59,3 +59,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_HILL_0EC4FF51E }}
           action: "close"
+
