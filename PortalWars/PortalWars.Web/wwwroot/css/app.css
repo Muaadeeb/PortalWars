@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: "Merriweather", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: radial-gradient(circle at top, #2c3242 0, #141822 45%, #050609 100%);
-    color: #f7f3e8;
+    color: #f3efe3;
 }
 
 /* Main layout wrapper */
@@ -45,17 +45,17 @@ body {
 }
 
 .navbar-nav .nav-link {
-    color: #f7f3e8 !important;
+    color: #f9f2df !important;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     font-size: 0.85rem;
 }
 
-    .navbar-nav .nav-link.active {
-        color: #ffd27f !important;
-        border-bottom: 2px solid #ffd27f;
-    }
+.navbar-nav .nav-link.active {
+    color: #ffd27f !important;
+    border-bottom: 2px solid #ffd27f;
+}
 
 /* Content area */
 .page {
@@ -72,7 +72,7 @@ body {
 
 /* “Parchment” cards */
 .parchment-card {
-    background: radial-gradient(circle at top left, #f8f1da 0, #e6d6a7 40%, #d3c087 100%);
+    background: radial-gradient(circle at top left, #f6edd4 0, #e1d09c 40%, #c8b176 100%);
     color: #2c2410;
     border-radius: 10px;
     border: 1px solid #b89a55;
@@ -82,14 +82,20 @@ body {
     overflow: hidden;
 }
 
-    .parchment-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        pointer-events: none;
-    }
+.parchment-card p,
+.parchment-card li {
+    color: #2a1f12;
+    line-height: 1.6;
+}
+
+.parchment-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+}
 
 /* Section headings */
 .section-title {
@@ -98,8 +104,8 @@ body {
     text-transform: uppercase;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
-    color: #c6a669;
-    opacity: 0.9;
+    color: #b48c45;
+    opacity: 1;
 }
 
 .hero-title {
@@ -108,13 +114,13 @@ body {
     font-size: 2.2rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #d4b678;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    color: #c89b4a;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.35);
 }
 
 .hero-subtitle {
+    color: #7a5b2d;
     font-size: 1rem;
-    color: #e2d9c2;
 }
 
 /* Pill tags (for party status, etc.) */
@@ -124,11 +130,13 @@ body {
     gap: 0.35rem;
     padding: 0.15rem 0.6rem;
     border-radius: 999px;
-    background: rgba(20, 24, 34, 0.9);
     border: 1px solid rgba(248, 241, 218, 0.4);
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    background: rgba(8, 10, 16, 0.95);
+    border-color: rgba(248, 241, 218, 0.6);
+    color: #f3efe3;
 }
 
 /* Little glowing divider */
@@ -141,12 +149,14 @@ body {
 
 /* Link style */
 a {
-    color: #ffd27f;
+    color: #c96c22;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
 }
 
-    a:hover {
-        color: #ffecc0;
-    }
+a:hover {
+    color: #ffb469;
+}
 
 /* Footer */
 .site-footer {
