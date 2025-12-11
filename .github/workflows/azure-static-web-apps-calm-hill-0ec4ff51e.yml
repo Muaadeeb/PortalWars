@@ -9,6 +9,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -21,7 +26,7 @@ jobs:
           submodules: true
           lfs: false
 
-      - name: Show workspace layout
+      - name: Show workspace layout (optional, can remove later)
         run: |
           echo "=== pwd ==="
           pwd
@@ -38,15 +43,13 @@ jobs:
       - name: Show dotnet info
         run: dotnet --info
 
-      # we'll fix this once we see the paths
+      # 🔹 Correct path to your project file
       - name: Restore
-        run: dotnet restore PortalWars.Web.csproj
-
+        run: dotnet restore PortalWars/PortalWars.Web/PortalWars.Web.csproj
 
       - name: Publish (Release)
-        run: dotnet publish PortalWars.Web.csproj -c Release -o published -f net10.0
+        run: dotnet publish PortalWars/PortalWars.Web/PortalWars.Web.csproj -c Release -o published -f net10.0
 
-      # Optional: verify what got published in the logs
       - name: List publish output
         run: ls -R published
 
@@ -57,11 +60,11 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_HILL_0EC4FF51E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          # We are uploading the already-published static files
-          app_location: "published/wwwroot"
+          # We are uploading already-published static files
+          app_location: "published/wwwroot"  # <- this folder contains index.html, etc.
           api_location: ""
-          output_location: ""          # nothing under app_location, it's the final folder
-          skip_app_build: true         # <- IMPORTANT: don't let Oryx try to build again
+          output_location: ""                # nothing under app_location; it's the final folder
+          skip_app_build: true               # <- don't let Oryx try to build again
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -75,4 +78,3 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_HILL_0EC4FF51E }}
           action: "close"
-
