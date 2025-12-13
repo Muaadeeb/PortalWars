@@ -359,6 +359,10 @@ a:hover {
     padding: 0 1.25rem 1.25rem 1.25rem;
 }
 
+.party-card-body .glow-divider {
+    margin: 1rem 0;
+}
+
 .party-detail-label {
     font-family: "Cinzel", serif;
     letter-spacing: 0.10em;
