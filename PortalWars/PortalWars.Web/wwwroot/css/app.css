@@ -314,6 +314,64 @@ a:hover {
     font-weight: 700;
 }
 
+/* Expand/collapse PartyMemberCard */
+.party-card-toggle {
+    padding: 0;
+}
+
+.party-card-header {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 1.25rem;
+    cursor: pointer;
+    text-align: inherit;
+}
+
+.party-card-header:focus {
+    outline: none;
+}
+
+.party-card-header:focus-visible {
+    outline: 2px solid rgba(255, 210, 127, 0.9);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+.party-chevron {
+    font-size: 1.25rem;
+    line-height: 1;
+    opacity: 0.75;
+    padding-top: 0.25rem;
+}
+
+.party-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 260ms ease;
+}
+
+.party-card-body.open {
+    max-height: 800px;
+}
+
+.party-card-body-inner {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+}
+
+.party-detail-label {
+    font-family: "Cinzel", serif;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-bottom: 0.25rem;
+}
+
+.party-detail-value {
+    color: rgba(44, 36, 16, 0.95);
+}
+
 /* Assets list */
 .party-asset {
     background: rgba(255,255,255,0.25);
