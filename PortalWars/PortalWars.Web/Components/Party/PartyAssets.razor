@@ -1,0 +1,35 @@
+﻿@using PortalWars.Web.Data
+
+<div class="parchment-card">
+    <div class="section-title">Party Assets</div>
+    <h2 class="h5 mb-3">Shared Gear, Relics, Holdings</h2>
+
+    @if (Assets.Count == 0)
+    {
+        <p class="mb-0">No shared assets recorded yet.</p>
+    }
+    else
+    {
+        <div class="list-group">
+            @foreach (var a in Assets)
+            {
+                <div class="list-group-item party-asset">
+                    <div class="d-flex justify-content-between gap-3">
+                        <div>
+                            <div class="party-asset-name">@a.Name</div>
+                            @if (!string.IsNullOrWhiteSpace(a.Notes))
+                            {
+                                <div class="party-asset-notes">@a.Notes</div>
+                            }
+                        </div>
+                        <span class="tag-pill">@a.Category</span>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired] public List<PartyAsset> Assets { get; set; } = new();
+}

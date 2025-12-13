@@ -1,0 +1,62 @@
+﻿@using PortalWars.Web.Data
+
+<div class="parchment-card party-card">
+    <div class="d-flex align-items-start gap-3">
+        <div class="portrait">
+            @if (!string.IsNullOrWhiteSpace(Member.PortraitUrl))
+            {
+                <img src="@Member.PortraitUrl" alt="@Member.Name portrait" />
+            }
+            else
+            {
+                <div class="portrait-placeholder">@Member.Name.Substring(0, 1)</div>
+            }
+        </div>
+
+        <div class="flex-grow-1">
+            <div class="d-flex flex-wrap align-items-baseline gap-2">
+                <h2 class="party-name m-0">@Member.Name</h2>
+                <span class="party-meta">@Member.Race • @Member.Class@if (!string.IsNullOrWhiteSpace(Member.Archetype)){
+                <text> (@Member.Archetype)</text>
+                                }
+</span>
+                <span class="party-level">Lv @Member.Level</span>
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(Member.Hook))
+            {
+                <div class="party-hook mt-2">@Member.Hook</div>
+            }
+
+            <div class="mt-3 d-flex flex-wrap gap-2">
+                @if (Member.Vitals?.AC is not null)
+                {
+                    <span class="tag-pill">AC: @Member.Vitals.AC</span>
+                }
+                @if (Member.Vitals?.HP is not null)
+                {
+                    <span class="tag-pill">HP: @Member.Vitals.HP</span>
+                }
+                @if (Member.Vitals?.Perception is not null)
+                {
+                    <span class="tag-pill">Perception: @Member.Vitals.Perception</span>
+                }
+                @if (!string.IsNullOrWhiteSpace(Member.DeityOrPhilosophy) && Member.DeityOrPhilosophy != "—")
+                {
+                    <span class="tag-pill">Faith: @Member.DeityOrPhilosophy</span>
+                }
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(Member.SignatureItem) && Member.SignatureItem != "—")
+            {
+                <div class="party-signature mt-3">
+                    <span class="party-signature-label">Signature:</span> @Member.SignatureItem
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public PartyMember Member { get; set; } = default!;
+}

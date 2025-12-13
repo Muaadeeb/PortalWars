@@ -1,0 +1,32 @@
+﻿@using PortalWars.Web.Data
+
+<div class="parchment-card party-banner">
+    <div class="d-flex flex-wrap align-items-start justify-content-between gap-3">
+        <div>
+            <div class="section-title">Party Overview</div>
+            <h1 class="hero-title m-0">@Model.PartyName</h1>
+
+            @if (!string.IsNullOrWhiteSpace(Model.Motto))
+            {
+                <div class="party-motto mt-2">@Model.Motto</div>
+            }
+
+            <div class="mt-3 d-flex flex-wrap gap-2">
+                @if (!string.IsNullOrWhiteSpace(Model.Status))
+                {
+                    <span class="tag-pill">Status: @Model.Status</span>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.CurrentLocation))
+                {
+                    <span class="tag-pill">Location: @Model.CurrentLocation</span>
+                }
+            </div>
+        </div>
+
+        <PartyStandard ImageUrl="@Model.StandardImageUrl" />
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public PartyModel Model { get; set; } = default!;
+}

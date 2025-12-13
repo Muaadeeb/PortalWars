@@ -106,6 +106,9 @@ body {
     margin-bottom: 0.5rem;
     color: #b48c45;
     opacity: 1;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .hero-title {
@@ -116,6 +119,10 @@ body {
     letter-spacing: 0.15em;
     color: #c89b4a;
     text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
 }
 
 .hero-subtitle {
@@ -201,4 +208,122 @@ a:hover {
 .loading-progress,
 .loading-progress-text {
     display: none;
+}
+
+/* Party page components */
+.party-banner {
+    padding: 2rem;
+}
+
+.party-motto {
+    font-style: italic;
+    color: #3a2a14;
+    opacity: 0.9;
+}
+
+.party-standard {
+    width: 220px;
+    max-width: 100%;
+}
+
+    .party-standard img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid rgba(0,0,0,0.15);
+    }
+
+.standard-placeholder {
+    border-radius: 10px;
+    border: 1px dashed rgba(0,0,0,0.25);
+    padding: 1rem;
+    text-align: center;
+    background: rgba(255,255,255,0.35);
+}
+
+.standard-title {
+    font-family: "Cinzel", serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.standard-subtitle {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Cards */
+.party-card {
+    padding: 1.25rem;
+}
+
+.portrait {
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(0,0,0,0.07);
+}
+
+    .portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.portrait-placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: rgba(44, 36, 16, 0.75);
+}
+
+.party-name {
+    font-family: "Cinzel", serif;
+    letter-spacing: 0.06em;
+}
+
+.party-meta {
+    color: rgba(44, 36, 16, 0.75);
+    font-size: 0.95rem;
+}
+
+.party-level {
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+.party-hook {
+    color: #2a1f12;
+    line-height: 1.55;
+}
+
+.party-signature {
+    font-size: 0.95rem;
+    color: rgba(44, 36, 16, 0.9);
+}
+
+.party-signature-label {
+    font-weight: 700;
+}
+
+/* Assets list */
+.party-asset {
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.party-asset-name {
+    font-weight: 700;
+}
+
+.party-asset-notes {
+    opacity: 0.9;
 }

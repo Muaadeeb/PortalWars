@@ -1,0 +1,43 @@
+﻿@page "/party"
+@using PortalWars.Web.Data
+
+<div class="container">
+    <PartyBanner Model="@PartyData.Current" />
+
+    <div class="glow-divider"></div>
+
+    <div class="row g-4">
+        <div class="col-lg-7">
+            <div class="section-title">Player Characters</div>
+
+            <div class="d-flex flex-column gap-3">
+                @foreach (var pc in PartyData.Current.Members)
+                {
+                    <PartyMemberCard Member="pc" />
+                }
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="section-title">Companions & Minions</div>
+
+            <div class="d-flex flex-column gap-3 mb-4">
+                @if (PartyData.Current.Companions.Count == 0)
+                {
+                    <div class="parchment-card">
+                        <p class="mb-0">No companions, cohorts, followers, or hirelings recorded yet.</p>
+                    </div>
+                }
+                else
+                {
+                    @foreach (var c in PartyData.Current.Companions)
+                    {
+                        <CompanionCard Model="c" />
+                    }
+                }
+            </div>
+
+            <PartyAssets Assets="@PartyData.Current.Assets" />
+        </div>
+    </div>
+</div>
